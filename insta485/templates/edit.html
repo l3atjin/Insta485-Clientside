@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<title>insta485</title>
+</head> 
+
+<body>
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+	<!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+	<form action="/accounts/edit/" method="post" enctype="multipart/form-data">
+		<input type="file" name="file">
+		<p>	Name: </p>
+		<input type="text" name="fullname" value="{{user.fullname}}"/>
+		<p> Email: </p>	
+		<input type="text" name="email" value="{{user.email}}"/>
+		<input type="submit" name="update" value="submit"/>
+	</form>
+
+	<a href="/accounts/password/">Change password</a>
+	<a href="/accounts/delete/">Delete account</a>
+	
+
+
+
+</body>
+</html>  

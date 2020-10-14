@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>insta485</title>
+</head>
+<body>
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+	{% for user in strangers %}
+		<a href="/u/{{user.username}}/">{{user.username}}</a>
+		<p>	{{user.filename}}</p>
+		<img src="/uploads/{{user.filename}}" alt = "photo" width="40" height ="40">
+		<!-- Follow Button -->
+		<form action="/explore/" method="post" enctype="multipart/form-data">
+			<input type="submit" name="follow" value="follow"/>
+			<input type="hidden" name="username" value="{{username}}"/>
+		</form>
+	{% endfor %}
+</body>
+</html>

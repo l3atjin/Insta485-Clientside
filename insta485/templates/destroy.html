@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<title>insta485</title>
+</head> 
+
+<body>
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  
+
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+{% for post in posts: %}
+	<a href="/u/{{post.owner}}/"><img src="{{post.owner_img_url}}" width="40" height ="40" alt = "Photo"></a>
+	<a href = "/u/{{post.owner}}/"> {{post.owner}} </a>
+	<p> <a href="/p/{{post.postid}}/"> {{post.timestamp}}</a> </p>
+
+	<img src="{{post.img_url}}" alt = "photo">
+
+	{% if post.likes == 1: %}
+		<p> 1 like </p>
+	{% else: %}
+	 	<p> {{post.likes}} likes </p>
+	{% endif %}
+
+	{% for comment in post.comments %}
+		<a href="/u/{{comment.owner}}/"> {{comment.owner}} </a> 
+		<p>{{comment.text}}</p>
+	{% endfor %}
+{% endfor %}
+
+</body>
+</html>  

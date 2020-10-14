@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# lscount
+#
+# List files and folders, followed by a count
+
+# Stop on errors, print commands
+# See https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -Eeuo pipefail
+set -x
+
+pycodestyle insta485
+pydocstyle insta485
+pylint --disable=cyclic-import insta485
+pytest -v tests
+eslint --ext jsx insta485/js/

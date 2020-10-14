@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>insta485</title>
+</head>
+<body>
+	<a href = "/"> Home </a>
+	<a href = "/explore/"> Explore </a>
+	<a href = "/u/{{logname}}/"> {{logname}} </a>
+
+	<a href="/u/{{mainpost.owner}}/"><img src="/uploads/{{post_owner[0].filename}}" alt = "photo" width="40" height ="40"></a>
+	<a href="/u/{{mainpost.owner}}/"> {{post_owner[0].username}} </a>
+
+	<img src= "/uploads/{{mainpost.filename}}" alt = "photo" >
+
+	{% if logname == mainpost.owner %}
+		<form action="/u/{{post_owner.username}}/" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="postid" value="{{mainpost.postid}}"/>
+			<input type="submit" name="delete" value="delete this post"/>
+		</form>
+	{% endif %}
+
+	<a href="/p/{{mainpost.postid}}"> {{mainpost.created}} </a>
+
+	{% if likes == 1: %}
+		<p> 1 like </p>
+	{% else %}
+		<p>{{likes}} likes </p>
+	{% endif %}
+
+	<!-- Like / Dislike Button -->
+	{% if mainpost.postid in log_likes :%}
+		<form action="/" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="postid" value={{mainpost.postid}}/>
+			<input type="submit" name="like" value="like"/>
+		</form>
+	{% else %}
+		<form action="/" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="postid" value="{{mainpost.postid}}"/>
+			<input type="submit" name="unlike" value="unlike"/>
+		</form>
+	{% endif %}
+
+	{% for comment in comments %}
+		<p> <a href="/u/{{comment.owner}}/">{{comment.owner}} </a> {{comment.text}}</p> 
+		{% if logname == comment.owner %}
+			<form action="/p/{{mainpost.postid}}/" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="commentid" value="{{comment.commentid}}"/>
+				<input type="submit" name="uncomment" value="delete"/>
+			</form>
+		{% endif %}
+	{%endfor%}
+
+		<!-- DO NOT CHANGE THIS (aside from where we say 'FIXME') -->
+	<form action="/p/{{mainpost.postid}}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="postid" value="{{postid}}"/>
+		<input type="text" name="text"/>
+		<input type="submit" name="comment" value="comment"/>
+	</form>
+</body>
+</html>
