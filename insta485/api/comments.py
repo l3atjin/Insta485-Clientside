@@ -7,22 +7,30 @@ import insta485
                     methods=['GET', 'POST'])
 def get_comments(postid_url_slug):
     """Get Comments."""
+    connection = insta485.model.get_db()
+    cur = connection.execute(
+        "SELECT * "
+        "FROM posts "
+        "WHERE postid = ?",
+        (postid_url_slug, )
+    )
+    posts = cur.fetchall()
+
+    if len(posts) == 0:
+        context = {
+            "message": "Not Found",
+            "status_code": 403
+        }
+        return flask.jsonify(**context), 403
+
     if "logname" not in flask.session:
         return flask.redirect(flask.url_for('show_login'))
 
     logname = flask.session["logname"]
-    connection = insta485.model.get_db()
 
     # POST request
     if flask.request.method == 'POST':
         data = flask.request.get_json()
-
-        """  cur = connection.execute(
-            "SELECT MAX(commentid) "
-            "FROM comments "
-        )
-        maxid = cur.fetchall()
-        max = maxid[0] """
 
         connection.execute(
             "INSERT INTO comments(owner, postid, text) "

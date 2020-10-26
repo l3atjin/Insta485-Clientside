@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Likes from './likes';
 import Post from './post';
-import Comments from './comments';
 
 class Feed extends React.Component {
   /* Display number of likes and like/unlike button for one post
@@ -11,8 +9,8 @@ class Feed extends React.Component {
 
   constructor(props) {
     // Initialize mutable state
-    super(props)
-    this.state = { postsJson: [], next: "" };
+    super(props);
+    this.state= { postsJson: [] };
   }
 
   componentDidMount() {
@@ -27,8 +25,8 @@ class Feed extends React.Component {
       })
       .then((data) => {
         this.setState({
-            postsJson: data["results"],
-            next: data["next"],
+          postsJson: data.results,
+          next: data.next,
         });
       })
       .catch((error) => console.log(error));
@@ -38,16 +36,16 @@ class Feed extends React.Component {
     // This line automatically assigns this.state.numLikes to the const variable numLikes
 
     // Render number of likes
-    const items = []
+    const items = [];
 
     for (const el of this.state.postsJson) {
-        items.push(<Post url={el.url} key={el.url + "yus"}/>)
+      items.push(<Post url={el.url} key={el.url + "yus"}/>);
     }
-       
+
     return (
-        <div className="feed">
-          <div>{items}</div>
-        </div>
+      <div className="feed">
+        <div>{items}</div>
+      </div>
     );
   }
 }

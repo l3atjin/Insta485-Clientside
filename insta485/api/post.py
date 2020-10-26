@@ -6,8 +6,8 @@ import insta485
 @insta485.app.route('/api/v1/p/<string:postid_url_slug>/', methods=["GET"])
 def get_post(postid_url_slug):
     """Get a Post."""
-    if "logname" not in flask.session:
-        return flask.redirect(flask.url_for('show_login'))
+    """ if "logname" not in flask.session:
+        return flask.redirect(flask.url_for('show_login')) """
 
     connection = insta485.model.get_db()
 
@@ -18,6 +18,14 @@ def get_post(postid_url_slug):
         (postid_url_slug, )
     )
     posts = cur.fetchall()
+
+    if len(posts) == 0:
+        context = {
+            "message": "Not Found",
+            "status_code": 403
+        }
+        return flask.jsonify(**context), 403
+
     post = posts[0]
 
     cur = connection.execute(

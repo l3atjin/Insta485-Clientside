@@ -7,12 +7,27 @@ import insta485
                     methods=['POST', 'GET', 'DELETE'])
 def get_likes(postid_url_slug):
     """Return likes on postid."""
+    connection = insta485.model.get_db()
+    cur = connection.execute(
+        "SELECT * "
+        "FROM posts "
+        "WHERE postid = ?",
+        (postid_url_slug, )
+    )
+    posts = cur.fetchall()
+
+    if len(posts) == 0:
+        context = {
+            "message": "Not Found",
+            "status_code": 403
+        }
+        return flask.jsonify(**context), 403
+
     if "logname" not in flask.session:
         return flask.redirect(flask.url_for('show_login'))
 
     # Set Connection
     logname = flask.session["logname"]
-    connection = insta485.model.get_db()
 
     # Delete request
     if flask.request.method == 'POST':

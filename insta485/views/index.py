@@ -27,12 +27,13 @@ def show_index():
     if "logname" not in flask.session:
         return flask.redirect(flask.url_for('show_login'))
 
+    # Get arguments
+    # size = flask.request.args.get("size", default=10, type=int)
+    # page = flask.request.args.get("page", default=0, type=int)
+
+    # context = {"size": size, "page": page}
     # Get variable arguments
-    size = flask.request.args.get("size", default=10, type=int)
-    page = flask.request.args.get("page", default=1, type=int)
     return flask.render_template("index.html")
-    # return flask.redirect(flask.url_for('get_recent_posts') + '?size='
-    #                                     + str(size) + '&page=' + str(page))
 
 
 # Show User

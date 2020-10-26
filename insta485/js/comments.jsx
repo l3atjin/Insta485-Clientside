@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Post from './post';
-import Form from './form'
+import Form from './form';
 
 class Comments extends React.Component {
   /* Display number of likes and like/unlike button for one post
@@ -11,10 +10,11 @@ class Comments extends React.Component {
   constructor(props) {
     // Initialize mutable state
     super(props);
-    this.state = { comments: "", newComment: "", car: [] };
+    this.state = { comments: '', newComment: '' };
     this.handleCommentChange = this.handleCommentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   componentDidMount() {
     // This line automatically assigns this.props.url to the const variable url
     const { url } = this.props;
@@ -32,15 +32,16 @@ class Comments extends React.Component {
       })
       .catch((error) => console.log(error));
   }
+
   handleCommentChange(input) {
-    this.setState({newComment: input});
+    this.setState({ newComment: input });
   }
 
-  handleSubmit(input) {
+  handleSubmit() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: this.state.newComment })
+      body: JSON.stringify({ text: this.state.newComment }),
     };
     fetch(this.props.url, requestOptions)
       .then((response) => {
@@ -49,34 +50,39 @@ class Comments extends React.Component {
       })
       .then((data) => {
         this.state.comments.push(data);
-        this.setState({
-          comments: this.state.comments,
-        });
-      })
-
+        this.setState((prevState) => ({
+          comments: prevState.comments,
+          newComment: "",
+        }));
+      });
   }
 
   render() {
     // This line automatically assigns this.state.numLikes to the const variable numLikes
-    const {comments} = this.state;
+    const { comments } = this.state;
     // console.log(comments);
     const items = [];
-    var user_link = "/u/";
+    let userLink = '/u/';
     // Loop Through Comments
-    for(const comment of comments){
-      user_link = "/u/" + comment["owner"];
-      items.push(<div key={comment["commentid"]}>
-                  <a href={user_link} >{comment["owner"]}</a>
-                  <p>{comment["text"]}</p>
-                 </div>
-                );
+    for (const comment of comments) {
+      userLink = `/u/${comment.owner}/`;
+      items.push(<div key={comment.commentid}>
+        <a href={userLink}>{comment.owner}</a>
+        <p>{comment.text}</p>
+      </div>);
     }
 
     // <Comments url={`${url}comments/`} /
     return (
       <div className="comments">
         {items}
-        <div><Form textContent = {this.state.newComment} onCommentChange = {this.handleCommentChange} onSubmitChange = {this.handleSubmit}/></div>
+        <div>
+          <Form
+            textContent={this.state.newComment}
+            onCommentChange={this.handleCommentChange}
+            onSubmitChange={this.handleSubmit}
+          />
+         </div>
       </div>
     );
   }
